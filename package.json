@@ -1,0 +1,24 @@
+{
+  "name": "barbershop-frontend",
+  "version": "1.0.0",
+  "description": "Barbershop front-end",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaniloAlmeidaSantos/barbershop-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaniloAlmeidaSantos/barbershop-frontend/issues"
+  },
+  "homepage": "https://github.com/DaniloAlmeidaSantos/barbershop-frontend#readme",
+  "dependencies": {
+    "react-native-paper": "^4.12.4",
+    "react-native-vector-icons": "^9.2.0",
+    "styled-components": "^5.3.5"
+  }
+}
