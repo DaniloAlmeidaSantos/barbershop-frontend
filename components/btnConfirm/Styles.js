@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components/native';
-import Colors from '../../constants/theme';
+import Colors from '../../constants/Theme';
 
-export const BTNConfirm = styled.TouchableOpacity`
+export const BtnConfirm = styled.TouchableOpacity`
     align-self: center;
     justify-content: center;
     align-items: center;

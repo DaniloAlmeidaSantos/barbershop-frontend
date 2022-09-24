@@ -7,7 +7,7 @@ import InputLogin from '../../components/inputLogin/InputLoginComponent'
 import { UserContext } from '../../contexts/UserContext';
 
 export default () => {
-    const { user, setUser } = useContext(UserContext);
+    // const { user, setUser } = useContext(UserContext);
 
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');

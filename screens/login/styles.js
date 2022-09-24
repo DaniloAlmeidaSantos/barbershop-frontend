@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components/native';
-import Colors from '../../constants/Theme_Default';
+import Colors from '../../constants/Theme';
 
 export const Login_Container = styled.View`
     flex: 1;

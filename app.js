@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import login from './screens/login/login';
+import LoginScreen from './screens/login/login';
 
 export default () => {
     return (
-      login
+      <View>
+        <LoginScreen/>
+      </View>
     );
 }
