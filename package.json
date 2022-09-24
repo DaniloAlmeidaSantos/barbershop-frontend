@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/DaniloAlmeidaSantos/barbershop-frontend#readme",
   "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
     "react-native-paper": "^4.12.4",
     "react-native-vector-icons": "^9.2.0",
     "styled-components": "^5.3.5"
