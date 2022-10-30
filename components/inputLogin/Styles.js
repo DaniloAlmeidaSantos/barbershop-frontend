@@ -14,13 +14,14 @@ export const InputLogin_Wrapper = styled.View`
 
     border-radius: 20px;
 
-    background-color: ${Colors.Dark};
+    background-color: ${Colors.Light};
+    border-bottom: 2px solid black;
 `;
 
 export const InputLogin_Input = styled.TextInput`
     width: 100%;
 
-    color: ${Colors.Light};
+    color: ${Colors.Dark};
     font-family: 'Segoe';
     font-size: 15px;
 `;
