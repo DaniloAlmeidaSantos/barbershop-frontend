@@ -1,4 +1,5 @@
 import * as React from 'react';
+import styled from 'styled-components/native';
 
 export const KeyboardView = styled.KeyboardAvoindingView`
     flex: 1;
