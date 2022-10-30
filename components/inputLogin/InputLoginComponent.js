@@ -1,7 +1,7 @@
 import React from 'react';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons';
 import Colors from '../../constants/Theme';
-import { InputLogin_Wrapper, InputLogin_Input } from './styles';
+import { InputLogin_Wrapper, InputLogin_Input } from './Styles';
 
 export default ({ onChangeText, value, placeholder, icon, secureTextEntry }) => {
     return (

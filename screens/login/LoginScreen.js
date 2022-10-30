@@ -1,33 +1,19 @@
 import React, { useContext, useState } from 'react';
-import { Login_Container, Login_Head, Login_Desc, Login_BtnRegister, Login_BtnText } from './styles';
+import { Login_Container, Login_Head, Login_Desc, Login_BtnRegister, Login_BtnText, Header_Text } from './styles';
 
-import AsyncStorage from '@react-native-community/async-storage';
 import BtnConfirm from '../../components/btnConfirm/BtnConfirmComponent';
 import InputLogin from '../../components/inputLogin/InputLoginComponent'
-import { UserContext } from '../../contexts/UserContext';
 
 export default () => {
-    // const { user, setUser } = useContext(UserContext);
 
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
 
-    const handleLogin = async () => {
-        // Service API
-    }
-
     return (
         <Login_Container>
-            <Header
-                whichScreen="Login"
-                text="ROSA BARBERSHOP"
-            // Teamimg={require('../../assets/img/')}
-            />
+            <Header_Text>BARBERSHOP</Header_Text>
             <Login_Head>
                 <Login_Desc>Login:</Login_Desc>
-                <Login_BtnRegister>
-                    <Login_BtnText>Cadastrar</Login_BtnText>
-                </Login_BtnRegister>
             </Login_Head>
 
             <InputLogin
@@ -44,7 +30,8 @@ export default () => {
                 value={password}
             />
 
-            <BtnConfirm title="Entrar" /*onPress={handleLogin}*/ onPress={alert("Login realizado com sucesso")} />
+            <BtnConfirm title="Entrar"/>
+            <BtnConfirm title="Cadastrar" />
         </Login_Container>
     )
 }

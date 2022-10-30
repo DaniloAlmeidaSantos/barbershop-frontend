@@ -4,7 +4,7 @@ import Colors from '../../constants/Theme';
 
 export const Login_Container = styled.View`
     flex: 1;
-    background-color: ${Colors.Medium};
+    background-color: ${Colors.Light};
 `;
 
 export const Login_Head = styled.View`
@@ -44,6 +44,10 @@ export const Login_BtnText = styled.Text`
     font-size: 15px;
 `;
 
-
-
-
+export const Header_Text = styled.Text`
+    font-size: 25px;
+    font-family: 'SegoeSemibold';
+    color: ${Colors.Light}; 
+    text-align: center;
+    margin: 20%;
+`;
