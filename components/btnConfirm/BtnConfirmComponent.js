@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function BtnConfirm({ title, onPress }){
+export default function BtnConfirmComponent({ title, onPress }){
     return(
         <BtnConfirm onPress={onPress}>
             <BtnText>{title}</BtnText>

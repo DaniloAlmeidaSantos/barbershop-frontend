@@ -1,11 +1,12 @@
 import React from 'react';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons';
 import Colors from '../../constants/Theme';
+import { InputLogin_Wrapper, InputLogin_Input } from './Styles';
 
-export default function InputLogin({onChangeText, value, placeholder, icon, secureTextEntry}){
-    return(
+export default ({ onChangeText, value, placeholder, icon, secureTextEntry }) => {
+    return (
         <InputLogin_Wrapper>
-            <IconMaterial name={icon} size={35} style={{color: Colors.Light, marginRight: 12}} />
+            <IconMaterial name={icon} size={35} style={{ color: Colors.Light, marginRight: 12 }} />
             <InputLogin_Input
                 onChangeText={onChangeText}
                 value={value}
@@ -17,8 +18,3 @@ export default function InputLogin({onChangeText, value, placeholder, icon, secu
         </InputLogin_Wrapper>
     )
 }
-
-import {
-    InputLogin_Wrapper,
-    InputLogin_Input
-} from './styles';
