@@ -7,20 +7,21 @@ export const BtnConfirm = styled.TouchableOpacity`
     justify-content: center;
     align-items: center;
 
-    width: 90%;
+    width: 8em;
 
-    margin-top: 33px;
+    margin-top: 10%;
+    margin-right: 2%;
 
-    border-radius: 5px;
+    border-radius: 6px;
 
     padding-top: 10px;
     padding-bottom: 10px;
-
-    background-color: ${Colors.Light};
+    
+    background-color: ${Colors.Dark};
 `;
 
 export const BtnText = styled.Text`
-    color: ${Colors.Dark};
-    font-size: 18px;
-    font-family: 'SegoeSemibold';
+  color: ${Colors.Light};
+  font-size: 18px;
+  font-family: 'SegoeSemibold';
 `;
