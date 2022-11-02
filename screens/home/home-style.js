@@ -1,24 +1,11 @@
 import * as React from 'react';
 import styled from 'styled-components/native';
 
-export const KeyboardView = styled.KeyboardAvoindingView`
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    background-color: #000;
-`;
-
 export const Container = styled.View`
     flex: 1;
-    justify-content: center;
-    align-items: center;
-    padding-bottom;
-`;
-
-export const ButtonSubmit = styled.TouchableOpacity`
-    
+    background-color: ${Colors.Light};
 `;
 
 export const Title = styled.View`
-    color: red;
+    color: #000;
 `;
