@@ -7,7 +7,7 @@ export const BtnConfirm = styled.TouchableOpacity`
     justify-content: center;
     align-items: center;
 
-    width: 8em;
+    width: 45%;
 
     margin-top: 10%;
     margin-right: 2%;

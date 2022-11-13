@@ -2,26 +2,26 @@ import * as React from 'react';
 import styled from 'styled-components/native';
 import Colors from '../../constants/Theme';
 
-export const InputLogin_Wrapper = styled.View`
-    flex-direction: row;
+export const BtnConfirm = styled.TouchableOpacity`
     align-self: center;
+    justify-content: center;
+    align-items: center;
 
-    width: 90%;
+    width: 45%;
 
-    margin-top: 15px;
+    margin-top: 10%;
+    margin-right: 2%;
 
-    padding: 6px;
+    border-radius: 6px;
 
-    border-radius: 20px;
-
-    background-color: ${Colors.Light};
-    border-bottom: 2px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    background-color: ${Colors.Dark};
 `;
 
-export const InputLogin_Input = styled.TextInput`
-    width: 100%;
-
-    color: ${Colors.Dark};
-    font-family: 'Segoe';
-    font-size: 15px;
+export const BtnText = styled.Text`
+  color: ${Colors.Light};
+  font-size: 18px;
+  font-family: 'SegoeSemibold';
 `;

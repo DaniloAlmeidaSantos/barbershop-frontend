@@ -2,13 +2,13 @@ import * as React from 'react';
 import styled from 'styled-components/native';
 import Colors from '../../constants/Theme';
 
-export const Login_Container = styled.View`
+export const Register_Container = styled.View`
     background-color: ${Colors.Light};
     width: 100%;
     height: 100%;
 `;
 
-export const Login_Head = styled.View`
+export const Register_Head = styled.View`
     align-self: center;
     align-items: center;
     justify-content: space-between;
@@ -21,18 +21,12 @@ export const Login_Head = styled.View`
     margin-top: 20px;
 `;
 
-export const login_label = styled.Text`
+export const Register_label = styled.Text`
   font-family: "SegoeBold";
 
 `;
 
-export const Login_Desc = styled.Text`
-    font-family: "SegoeBold";
-    color: ${Colors.Dark};
-    font-size: 23px;
-`;
-
-export const Login_BtnRegister = styled.TouchableOpacity`
+export const BtnRegister = styled.TouchableOpacity`
     align-items: center;
     justify-content: center;
 
@@ -42,14 +36,7 @@ export const Login_BtnRegister = styled.TouchableOpacity`
     padding-right: 15px;
 
     border-radius: 8px;
-    background-color: ${Colors.Light};
-`;
-
-export const Login_BtnText = styled.Text`
-    margin: 5%
-    font-family: "SegoeSemibold";
-    color: ${Colors.Medium};
-    font-size: 15px;
+    background-color: ${Colors.Dark};
 `;
 
 export const Header_Text = styled.Text`

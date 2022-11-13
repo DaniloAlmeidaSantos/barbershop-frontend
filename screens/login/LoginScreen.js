@@ -1,15 +1,17 @@
-import React, { useContext, useState } from 'react';
-import { View, Text, SafeAreaView } from 'react-native';
-import { Login_Container, Login_Head, Header_Text, ButtonArea } from './styles';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React, { useState } from 'react';
+import { View, Text } from 'react-native';
+import {
+  Login_Container,
+  Header_Text,
+  ButtonArea,
+  Login_BtnText,
+} from './styles';
 import BtnConfirm from '../../components/btnConfirm/BtnConfirmComponent';
-import InputLogin from '../../components/inputLogin/InputLoginComponent';
-import RegisterScreen from '../Register/RegisterScreen';
+import InputLogin from '../../components/inputLogin/InputComponent';
 
-const Stack = createNativeStackNavigator();
-
-function authenticateUser(email, password, navigation) {}
+function authenticateUser(email, password, navigation) {
+  navigation.navigate('Register');
+}
 
 function AuthenticateScreen({ navigation }) {
   const [password, setPassword] = useState('');
@@ -17,9 +19,9 @@ function AuthenticateScreen({ navigation }) {
 
   return (
     <Login_Container>
-      <Header_Text>Carlos Rosa Barbearia</Header_Text>
-      <Login_Head> </Login_Head>
-
+      <View>
+        <Header_Text>Carlos Rosa Barbearia</Header_Text>
+      </View>
       <InputLogin
         icon="person"
         placeholder="E-mail"
@@ -33,7 +35,7 @@ function AuthenticateScreen({ navigation }) {
         onChangeText={(text) => setPassword(text)}
         value={password}
       />
-
+      <Login_BtnText>Esqueceu a senha?</Login_BtnText>
       <ButtonArea style={{ flexDirection: 'row' }}>
         <BtnConfirm
           style={{ flex: 1 }}
@@ -50,16 +52,14 @@ function AuthenticateScreen({ navigation }) {
       <View
         style={{
           position: 'fixed',
-          bottom: 0,
+          bottom: -100,
           flex: 1,
           alignItems: 'center',
           alignSelf: 'center',
           justifyContent: 'center',
           margin: 20,
         }}>
-        <View>
-          <Text>© 2022-2022 Senacsp. All Rights Reserved. </Text>
-        </View>
+        <Text>© 2022-2022 Senacsp. All Rights Reserved.</Text>
       </View>
     </Login_Container>
   );
@@ -67,15 +67,6 @@ function AuthenticateScreen({ navigation }) {
 
 export default () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initalsRouteName="Authenticate"
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Stack.Screen name="Authenticate" component={AuthenticateScreen} />
-        <Stack.Screen name="Register" component={RegisterScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AuthenticateScreen />
   );
 };
