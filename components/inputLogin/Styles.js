@@ -2,26 +2,25 @@ import * as React from 'react';
 import styled from 'styled-components/native';
 import Colors from '../../constants/Theme';
 
-export const BtnConfirm = styled.TouchableOpacity`
+export const InputWrapper = styled.View`
+    flex-direction: row;
     align-self: center;
-    justify-content: center;
-    align-items: center;
 
-    width: 45%;
+    width: 90%;
 
-    margin-top: 10%;
-    margin-right: 2%;
+    margin-top: 15px;
 
-    border-radius: 6px;
+    padding: 6px;
 
-    padding-top: 10px;
-    padding-bottom: 10px;
-    
-    background-color: ${Colors.Dark};
+    border-radius: 20px;
+    background-color: ${Colors.Light};
+    border: 3px solid black;
 `;
 
-export const BtnText = styled.Text`
-  color: ${Colors.Light};
-  font-size: 18px;
-  font-family: 'SegoeSemibold';
+export const InputText = styled.TextInput`
+    width: 100%;
+
+    color: ${Colors.Dark};
+    font-family: 'Segoe';
+    font-size: 15px;
 `;

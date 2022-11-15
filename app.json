@@ -8,5 +8,9 @@
     "assetBundlePatterns": [
       "**/*"
     ]
+  },
+  "splash": {
+    "resizeMode": "contain",
+    "backgroundColor": "#333333"
   }
 }

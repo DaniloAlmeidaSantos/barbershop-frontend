@@ -21,11 +21,6 @@ export const Login_Head = styled.View`
     margin-top: 20px;
 `;
 
-export const login_label = styled.Text`
-  font-family: "SegoeBold";
-
-`;
-
 export const Login_Desc = styled.Text`
     font-family: "SegoeBold";
     color: ${Colors.Dark};
@@ -64,6 +59,5 @@ export const ButtonArea = styled.View`
   align-self: center;
   justify-content: center;
   align-items: center;
-  flexDirection: "row";
   width: 100%;
 `

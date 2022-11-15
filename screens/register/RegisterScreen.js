@@ -1,74 +1,56 @@
-import React, { useState } from 'react';
-import { View, Text, SafeAreaView } from 'react-native';
-import {
-  Register_Container,
-  Register_Head,
-  BtnRegister,
-  Register_label,
-  Header_Text,
-  ButtonArea,
-} from './styles';
-import InputRegister from '../../components/inputLogin/InputComponent';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import * as React from 'react';
+import styled from 'styled-components/native';
+import Colors from '../../constants/Theme';
 
-const Stack = createNativeStackNavigator();
+export const Register_Container = styled.View`
+    background-color: ${Colors.Light};
+    width: 100%;
+    height: 100%;
+`;
 
-function verifyConfirmationPassword(text) {
-}
+export const Register_Head = styled.View`
+    align-self: center;
+    align-items: center;
+    justify-content: space-between;
 
-function RegisterScreen({ navigation }) {
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [cpf, setCpf] = useState('');
-  const [phone, setPhone] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+    font-size: 38px;
+    font-family: "SegoeBold";
 
-  return (
-    <SafeAreaView>
-      <Register_Container>
-        <InputRegister
-          placeholder="E-mail"
-          onChangeText={(text) => setEmail(text)}
-          value={email}
-        />
-        <InputRegister
-          placeholder="Nome Completo"
-          onChangeText={(text) => setName(text)}
-          value={email}
-        />
-        <InputRegister
-          placeholder="CPF"
-          onChangeText={(text) => setCpf(text)}
-          value={email}
-        />
-        <InputRegister
-          placeholder="Telefone"
-          onChangeText={(text) => setPhone(text)}
-          value={email}
-        />
-        <InputRegister
-          placeholder="Senha"
-          onChangeText={(text) => setSenha(text)}
-          value={email}
-        />
-        <InputRegister
-          placeholder="Confirma senha"
-          onChangeText={(text) => setConfirmPassword(text)}
-          value={email}
-        />
+    width: 88%;
 
-        <ButtonArea>
-          <BtnRegister text="Realizar cadastro" />
-        </ButtonArea>
-      </Register_Container>
-    </SafeAreaView>
-  );
-}
+    margin-top: 18%;
+    margin-bottom: 10%;
+`;
 
-export default function App() {
-  return(
-    <RegisterScreen/>
-  );
-}
+export const Register_label = styled.Text`
+  font-family: "SegoeBold";
+  font-size: 38px;
+`;
+
+export const BtnRegister = styled.TouchableOpacity`
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    border-radius: 8px;
+    background-color: ${Colors.Dark};
+`;
+
+export const Header_Text = styled.Text`
+    font-size: 25px;
+    font-family: 'SegoeSemibold';
+    color: ${Colors.Dark}; 
+    text-align: center;
+    margin: 20%;
+`;
+
+export const ButtonArea = styled.View`
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`

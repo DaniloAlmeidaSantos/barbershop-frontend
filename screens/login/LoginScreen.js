@@ -13,7 +13,7 @@ function authenticateUser(email, password, navigation) {
   navigation.navigate('Register');
 }
 
-function AuthenticateScreen({ navigation }) {
+export default function AuthenticateScreen({ navigation }) {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
@@ -62,11 +62,5 @@ function AuthenticateScreen({ navigation }) {
         <Text>© 2022-2022 Senacsp. All Rights Reserved.</Text>
       </View>
     </Login_Container>
-  );
-}
-
-export default () => {
-  return (
-    <AuthenticateScreen />
   );
 };
