@@ -18,12 +18,13 @@ export const Register_Head = styled.View`
 
     width: 88%;
 
-    margin-top: 20px;
+    margin-top: 18%;
+    margin-bottom: 10%;
 `;
 
 export const Register_label = styled.Text`
   font-family: "SegoeBold";
-
+  font-size: 38px;
 `;
 
 export const BtnRegister = styled.TouchableOpacity`
@@ -51,6 +52,5 @@ export const ButtonArea = styled.View`
   align-self: center;
   justify-content: center;
   align-items: center;
-  flexDirection: "row";
   width: 100%;
 `
