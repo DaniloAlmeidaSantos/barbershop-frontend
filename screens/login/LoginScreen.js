@@ -10,7 +10,33 @@ import BtnConfirm from '../../components/btnConfirm/BtnConfirmComponent';
 import InputLogin from '../../components/inputLogin/InputComponent';
 
 function authenticateUser(email, password, navigation) {
-  navigation.navigate('Register');
+  let responseRequest = null;
+
+  if (email && password) {
+    const authenticateRequest = {
+      email: email,
+      password: password,
+    };
+
+    fetch(
+      'https://backend-barbershop-carlosrosa.herokuapp.com/barbershop/user/login',
+      {
+        method: 'POST',
+        body: JSON.stringify({ authenticateRequest }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }
+    )
+      .then((response) => {
+        alert(response.json());
+      })
+      .catch((error) => alert(error));
+
+    navigation.navigate('Home');
+  } else {
+    alert('Campos obrigatórios sem preenchimento...');
+  }
 }
 
 export default function AuthenticateScreen({ navigation }) {
@@ -63,4 +89,4 @@ export default function AuthenticateScreen({ navigation }) {
       </View>
     </Login_Container>
   );
-};
+}
