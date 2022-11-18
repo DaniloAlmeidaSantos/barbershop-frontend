@@ -9,31 +9,29 @@ import {
 import BtnConfirm from '../../components/btnConfirm/BtnConfirmComponent';
 import InputLogin from '../../components/inputLogin/InputComponent';
 
-function authenticateUser(email, password, navigation) {
-  let responseRequest = null;
-
+async function authenticateUser(email, password, navigation) {
   if (email && password) {
     const authenticateRequest = {
       email: email,
       password: password,
     };
 
-    fetch(
+    let responseRequest = await fetch(
       'https://backend-barbershop-carlosrosa.herokuapp.com/barbershop/user/login',
       {
         method: 'POST',
-        body: JSON.stringify({ authenticateRequest }),
+        body: JSON.stringify(authenticateRequest),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },
       }
-    )
-      .then((response) => {
-        alert(response.json());
-      })
-      .catch((error) => alert(error));
+    );
 
-    navigation.navigate('Home');
+    if (responseRequest.status == 200) {
+      await navigation.navigate('Home', { responseRequest });
+    } else {
+      alert('Login ou senha incorretos...');
+    }
   } else {
     alert('Campos obrigatórios sem preenchimento...');
   }
