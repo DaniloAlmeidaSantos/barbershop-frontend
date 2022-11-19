@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View, Text } from 'react-native';
 import {
   Register_Container,
   ButtonArea,
@@ -10,7 +9,7 @@ import InputRegister from '../../components/inputLogin/InputComponent';
 import BtnRegister from '../../components/btnRegister/BtnRegisterComponent';
 import BtnConfirm from '../../components/btnConfirm/BtnConfirmComponent';
 
-function registerUser(
+async function registerUser(
   name,
   email,
   cpf,
@@ -19,24 +18,42 @@ function registerUser(
   confirmPassword,
   navigation
 ) {
-  if (password === confirmPassword) {
-    const registerRequest = {
-      name: name,
-      email: email,
-      cpf: cpf,
-      password: password,
-      phone: phone,
-      userType: 'C',
-    };
+  const registerRequest = {
+    name: name,
+    email: email,
+    cpf: cpf,
+    password: password,
+    phone: phone,
+    userType: 'C',
+  };
 
-    // Need request to endpoint /barbershop/user/register for register user
-    // I don't receive json, endpoint return status code 200 for success & 400 for failed request
+  if (name && cpf && email && password && phone) {
+    if (password === confirmPassword && password && confirmPassword) {
+      let responseRequest = await fetch(
+        'https://backend-barbershop-carlosrosa.herokuapp.com/barbershop/user/register',
+        {
+          method: 'POST',
+          body: JSON.stringify(registerRequest),
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        }
+      );
+
+      if (responseRequest.status == 200) {
+        await navigation.navigate('Authenticate', { responseRequest });
+      } else {
+        alert(
+          'Error ao realizar cadastro, revise seus dados, ou tente novamente mais tarde...'
+        );
+      }
+    } else {
+      alert('Revise sua confirmação de senha, não estão em conformidade');
+    }
+  } else {
+    alert('Preencha os campos obrigatórios.')
   }
-
-  navigation.navigate('Authenticate');
 }
-
-
 
 export default function RegisterScreen({ navigation }) {
   const [name, setName] = useState('');
@@ -60,17 +77,17 @@ export default function RegisterScreen({ navigation }) {
       <InputRegister
         placeholder="Nome Completo"
         onChangeText={(text) => setName(text)}
-        value={email}
+        value={name}
       />
       <InputRegister
         placeholder="CPF"
         onChangeText={(text) => setCpf(text)}
-        value={email}
+        value={cpf}
       />
       <InputRegister
         placeholder="Telefone"
         onChangeText={(text) => setPhone(text)}
-        value={email}
+        value={phone}
       />
       <InputRegister
         placeholder="Senha"
@@ -82,7 +99,7 @@ export default function RegisterScreen({ navigation }) {
         placeholder="Confirma senha"
         secureTextEntry={true}
         onChangeText={(text) => setConfirmPassword(text)}
-        value={email}
+        value={confirmPassword}
       />
 
       <ButtonArea>
