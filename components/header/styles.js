@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components/native';
 import Colors from '../../constants/Theme';
+import Constants from 'expo-constants';
 
 export const Header_Container = styled.View`
   flex-direction: row;
@@ -10,7 +11,7 @@ export const Header_Container = styled.View`
 
   width: 95%;
 
-  margin-top: 3%;
+  margin-top: ${Constants.statusBarHeight + 7}
 
   padding: 8px;
 
@@ -24,6 +25,7 @@ export const Header_Name = styled.Text`
 
   font-color: ${Colors.SuperDark};
   font-family: 'SegoeSemibold';
+  font-size: 18px
 `
 
 export const Header_WrapperIcons = styled.View`

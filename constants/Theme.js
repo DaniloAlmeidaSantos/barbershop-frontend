@@ -1,7 +1,7 @@
 export default {
-    Light: '#FFFFFF',
-    LightAlternative: '#FFB1B1',
-    Medium: '#391C39',
-    Dark: '#000000',
-    SuperDark: '#110A11',
+    Light: '#FEFEFE',
+    LightAlternative: '#F5F5F5',
+    Medium: '#D9D9D9',
+    Dark: '#A0A0A0',
+    SuperDark: '#000',
 }
