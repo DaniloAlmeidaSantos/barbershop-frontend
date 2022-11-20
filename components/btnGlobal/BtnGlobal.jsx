@@ -1,4 +1,5 @@
 import react from 'react';
+import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../../constants/Theme';
 
@@ -7,11 +8,12 @@ import {
   BtnGlobal_Text
 } from './styles';
 
-export default function btnGlobal({ iconName, text, size }){
+export default function btnGlobal({ iconName, text, size, onPress }){
   return (
-    <BtnGlobal_Container>
+    <BtnGlobal_Container style={{marginRight: 5}} onPress={onPress}>
       {iconName ?
-      <Icon name={iconName} size={size} style={{marginRight: 5}} color={Colors.Light} />:<></>
+        <Icon name={iconName} size={size} style={text === 'Salvar' ? {marginRight: 5}:{marginRight: 0}} color={Colors.Light} />
+      :<></>
       }
       <BtnGlobal_Text>{text}</BtnGlobal_Text>
     </BtnGlobal_Container>

@@ -18,7 +18,7 @@ export default function EmptyList({ iconName, mainText, text }){
       <EmptyList_MainText>{mainText}</EmptyList_MainText>
       <EmptyList_Text>{text}</EmptyList_Text>
 
-      <GButtom iconName="calendar-plus" text="Agendar" size={20} />
+      <GButtom iconName="calendar-plus" text="Agendar" size={20} onPress={() => navigation.navigate('Scheduling')} />
 
     </EmptyList_Container>
   );

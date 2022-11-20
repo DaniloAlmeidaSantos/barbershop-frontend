@@ -12,9 +12,8 @@ export const InputWrapper = styled.View`
 
     padding: 6px;
 
-    border-radius: 20px;
-    background-color: ${Colors.Light};
-    border: 3px solid black;
+    border-radius: 10px;
+    background-color: ${Colors.LightAlternative};
 `;
 
 export const InputText = styled.TextInput`

@@ -8,7 +8,7 @@ export const BtnGlobal_Container = styled.TouchableOpacity`
   justify-content: space-between;
   align-self: center;
 
-  padding: 10px;
+  padding: 6px;
   padding-left: 12px;
   padding-right: 17px;
 

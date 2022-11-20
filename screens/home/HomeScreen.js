@@ -16,7 +16,7 @@ export default function HomeScreen({ navigation }) {
   const [data, setData] = useState([]);
   const [refresh, setRefresh] = useState(false);
 
-  // useEffect(() => { getSchedules() }, [])
+  useEffect(() => { getSchedules() }, [])
     
   async function getSchedules(email, password, navigation) {
       setRefresh(true);
@@ -33,15 +33,22 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <Home_Container>
-      <Header 
+      <Header
+        actionBtsOn={true}
         isAdmin={true}
-        barberShopName="Carlos Rosa Barbearia"
+        text="Carlos Rosa Barbearia"
+        onPressManage={() => navigation.navigate("Manager")}
       />
 
       <Home_BarberStatus>
         <Home_BarberStatus_Text>Estamos Funcionando Agora</Home_BarberStatus_Text>
         
-        <GButtom iconName="calendar-plus" text="Agendar" size={20} />
+        <GButtom 
+          iconName="calendar-plus" 
+          text="Agendar" 
+          size={20} 
+          onPress={() => navigation.navigate("Scheduling")}
+        />
       </Home_BarberStatus>
 
      <FlatList
@@ -59,9 +66,6 @@ export default function HomeScreen({ navigation }) {
             />
         )}
       />
-       {/**/}
-      
-      {/*<EmptyList iconName="calendar-clock" mainText="Estamos Disponíveis!" text="Ainda não possuimos horário, clique no botão agendar abaixo para agendar um horário" />*/}
 
     </Home_Container> 
   )

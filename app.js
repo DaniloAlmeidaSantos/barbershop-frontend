@@ -16,8 +16,10 @@ export default () => {
           headerShown: false,
         }}>
         <Stack.Screen name="Authenticate" component={AuthenticateScreen} />
-        <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Manager" component={ManagerScreen} />
+        <Stack.Screen name="Scheduling" component={SchedulingScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

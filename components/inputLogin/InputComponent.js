@@ -1,5 +1,7 @@
 import React from 'react';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons';
+import IconComunity from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import Colors from '../../constants/Theme';
 import { InputWrapper, InputText } from './Styles';
 
@@ -9,14 +11,22 @@ export default ({
   placeholder,
   icon,
   secureTextEntry,
+  onSubmitEditing
 }) => {
   return (
     <InputWrapper>
-      <IconMaterial
-        name={icon}
-        size={35}
-        style={{ color: Colors.Dark, marginRight: 12 }}
-      />
+      {icon === 'calendar-month' ?
+        <IconComunity
+          name={icon}
+          size={35}
+          style={{ color: Colors.Dark, marginRight: 12 }}
+        />:
+        <IconMaterial
+          name={icon}
+          size={35}
+          style={{ color: Colors.Dark, marginRight: 12 }}
+        />
+      }
       <InputText
         onChangeText={onChangeText}
         value={value}
@@ -24,6 +34,7 @@ export default ({
         placeholder={placeholder}
         secureTextEntry={secureTextEntry}
         placeholderTextColor="#000"
+        onSubmitEditing={onSubmitEditing}
       />
     </InputWrapper>
   );
