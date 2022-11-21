@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View} from 'react-native'
-
+import { useRoute } from '@react-navigation/native';
 import Header from '../../components/header/header.jsx';
 import LabelDefaultComponent from '../../components/labelDefault/LabelDefaultComponent.jsx';
 import InputComponent from '../../components/inputLogin/InputComponent'
@@ -14,85 +13,94 @@ import {
   Scheduling_SaveBtnText
 } from './styles.js'
 
+async function saveSchedule(date, hour, response, navigation) {
+  console.log(response.response.userId)
+  const scheduleRequest = {
+    customerId: response.response.userId,
+    barberId: 2,
+    servicesId: '1',
+    date: date,
+    time: hour + ":00"
+  }
+  let responseRequest = await fetch(
+    'https://backend-barbershop-carlosrosa.herokuapp.com/barbershop/schedule',
+    {
+      method: 'POST',
+      body: JSON.stringify(scheduleRequest),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    }
+  );
+
+  if (responseRequest.status == 200) {
+    await navigation.navigate('Home', {response});
+  } else {
+    alert(
+      'Error ao realizar agendamento, tente mais tarde...'
+    );
+  }
+}
+
 export default function SchedulingScreen({ navigation }) {
   const [date, setDate] = useState('');
   const [check, setCheck] = useState(false);
-  const [dates, setDates] = useState({});
+  const [hourRequest, setHourRequest] = useState('');
   const [loading, setLoading] = useState(true);
+  const route = useRoute();
 
-  const hour = ["6:00","7:00","8:00","9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00"]
-
-  // useEffect(() => { getHours() },[])
-
-  // async function getHours(){
-  //   await fetch('https://backend-barbershop-carlosrosa.herokuapp.com/barbershop/schedule?date=2022-11-07', { method: 'GET'})
-  //   .then((response) => {
-  //     return response.json();
-
-  //   }).then((data) => {
-  //     setDates(data.hoursAvailables);
-  //     console.log(dates); 
-  //   })
-  // }
-    
-  // async function setSchedule() {
-  //     setRefresh(true);
-  //     // let responseRequest = await fetch( 'https://backend-barbershop-carlosrosa.herokuapp.com/schedule', { body: data , method: 'POST'})
-  //     const content = await responseRequest.json();
-  //     console.log(content)
-      
-  // }
+  const hour = ["06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00"]
 
   function handleCheck(hour){
     setCheck(hour);
+    setHourRequest(hour);
+    console.log(route.params)
   }
 
   return (
     <Scheduling_Container>
+      <Header
+        actionBtsOn={false} 
+        btnGoBack={true}
+        onPressGoBack={() => navigation.goBack()}
+        text="Agendamento"
+      />
 
-    <Header
-      actionBtsOn={false} 
-      btnGoBack={true}
-      onPressGoBack={() => navigation.goBack()}
-      text="Agendamento"
-    />
+      <LabelDefaultComponent text="Digite a data que deseja agendar:" />
 
-    <LabelDefaultComponent text="Digite a data que deseja agendar:" />
+      <InputComponent
+        onChangeText={(index) => setDate(index)}
+        value={date}
+        placeholder="Por exemplo: 2023-04-04"
+        icon="calendar-month"
+        secureTextEntry={false}
+        onSubmitEditing={() => setLoading(false)}
+      />
 
-    <InputComponent
-      onChangeText={(index) => setDate(index)}
-      value={date}
-      placeholder="Por exemplo: 14/04/2023"
-      icon="calendar-month"
-      secureTextEntry={false}
-      onSubmitEditing={() => setLoading(false)}
-    />
+      {loading ?
+        <Loading />
+        :
+        <>
+          <LabelDefaultComponent text={`Horários disponíveis para o dia ${date}`} />
+          <Scheduling_WrapperSchedules>
+            {hour.map(index => {
+              return (
+                <CheckBoxComponent
+                  title={index}
+                  onPress={() => handleCheck(index)}
+                  isChecked={check === index}
+                  typeWidth="Half"
+                />
+              )
+            })}
+          </Scheduling_WrapperSchedules>
 
-    {loading ?
-      <Loading />
-      :
-      <>
-        <LabelDefaultComponent text={`Horários disponíveis para o dia ${date}`} />
-        <Scheduling_WrapperSchedules>
-          {hour.map(index => {
-            return (
-              <CheckBoxComponent
-                title={index}
-                onPress={() => handleCheck(index)}
-                isChecked={check === index}
-                typeWidth="Half"
-              />
-            )
-          })}
-        </Scheduling_WrapperSchedules>
+          <Scheduling_SaveBtn onPress={() => saveSchedule(date, hourRequest, route.params, navigation)}> 
+            <Scheduling_SaveBtnText>Agendar Horário</Scheduling_SaveBtnText>
+          </Scheduling_SaveBtn>
+        </>
 
-        <Scheduling_SaveBtn> 
-          <Scheduling_SaveBtnText>Agendar Horário</Scheduling_SaveBtnText>
-        </Scheduling_SaveBtn>
-      </>
-
-    }
-
+      }
     </Scheduling_Container> 
   )
 }

@@ -17,7 +17,7 @@ import {
   Scheduling_DeleteButton
 } from './Styles';
 
-export default function SchedulingItem({ services, date, hour }){
+export default function SchedulingItem({ services, date, hour, isDeleted, onPressDelete }){
 
 
   return (
@@ -36,10 +36,14 @@ export default function SchedulingItem({ services, date, hour }){
       </Scheduling_WrapperLeft>
 
 
-
-      <Scheduling_DeleteButton>
-        <Icon name="trash" size={25} color={Colors.Light} />
-      </Scheduling_DeleteButton>
+      {
+        isDeleted ? 
+          <Scheduling_DeleteButton onPress={() => onPressDelete}>
+            <Icon name="trash" size={25} color={Colors.Light} />
+          </Scheduling_DeleteButton>
+          : <></>
+      }
+      
 
     </Scheduling_Container>
   )

@@ -52,7 +52,6 @@ export const Header_Text = styled.Text`
     font-family: 'SegoeSemibold';
     color: ${Colors.Dark}; 
     text-align: center;
-    margin: 20%;
 `;
 
 export const ButtonArea = styled.View`

@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import { useRoute } from '@react-navigation/native';
 import { FlatList, RefreshControl } from 'react-native';
 
 import Header from '../../components/header/header.jsx';
@@ -9,64 +10,82 @@ import SchedulingItem from '../../components/schedulingItem/SchedulingItem.jsx';
 import {
   Home_Container,
   Home_BarberStatus,
-  Home_BarberStatus_Text
-} from './style.js'
+  Home_BarberStatus_Text,
+} from './style.js';
 
 export default function HomeScreen({ navigation }) {
   const [data, setData] = useState([]);
   const [refresh, setRefresh] = useState(false);
 
-  useEffect(() => { getSchedules() }, [])
-    
-  async function getSchedules(email, password, navigation) {
-      setRefresh(true);
-      let responseRequest = await fetch( 'https://backend-barbershop-carlosrosa.herokuapp.com/barbershop/services/scheduled?userId=2', { method: 'GET'})
-      .then((response) => {
-        return response.json();
+  const route = useRoute();
 
-      }).then((data) => { 
-        setData(data);
-        setRefresh(false);
-      })
+  useEffect(() => {
+    getSchedules();
+  }, []);
+
+  async function deleteService(indentifications) {
+    console.log(indentifications)
   }
 
+  async function getSchedules() {
+    setRefresh(true);
+    let responseRequest = await fetch(
+      `https://backend-barbershop-carlosrosa.herokuapp.com/barbershop/services/scheduled?userId=${route.params.response.userId}`,
+      { method: 'GET' }
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setData(data);
+        setRefresh(false);
+      });
+  }
 
   return (
     <Home_Container>
       <Header
         actionBtsOn={true}
-        isAdmin={true}
+        isAdmin={route.params.response.typeUser == 'A' ? true : false}
         text="Carlos Rosa Barbearia"
-        onPressManage={() => navigation.navigate("Manager")}
+        onPressManage={() => navigation.navigate('Manager')}
       />
 
       <Home_BarberStatus>
-        <Home_BarberStatus_Text>Estamos Funcionando Agora</Home_BarberStatus_Text>
-        
-        <GButtom 
-          iconName="calendar-plus" 
-          text="Agendar" 
-          size={20} 
-          onPress={() => navigation.navigate("Scheduling")}
+        <Home_BarberStatus_Text>
+          Estamos Funcionando Agora
+        </Home_BarberStatus_Text>
+
+        <GButtom
+          iconName="calendar-plus"
+          text="Agendar"
+          size={20}
+          onPress={() =>
+            navigation.navigate('Scheduling', {
+              response: route.params.response,
+            })
+          }
         />
       </Home_BarberStatus>
 
-     <FlatList
+      <FlatList
         data={data}
         refreshControl={
           <RefreshControl onRefresh={getSchedules} refreshing={refresh} />
         }
-        style={{ flex: 1, width: "100%", alignSelf: "center", marginBottom: 6 }}
+        style={{ flex: 1, width: '100%', alignSelf: 'center', marginBottom: 6 }}
         keyExtractor={(data, index) => String(data.indentifications)}
         renderItem={({ item: data }) => (
-            <SchedulingItem
-              services={data.jobs} 
-              date={data.date}
-              hour={data.time}
-            />
+          <SchedulingItem
+            services={data.jobs}
+            date={data.date}
+            hour={data.time}
+            isDeleted={data.status == 'FEITO' || data.status == 'CANCELADO' ? false : true}
+            onPressDelete={() => deleteService(data.indentifications)}
+          />
         )}
       />
-
-    </Home_Container> 
-  )
+    </Home_Container>
+  );
 }

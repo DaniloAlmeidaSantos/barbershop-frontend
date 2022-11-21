@@ -24,7 +24,7 @@ export const Register_Head = styled.View`
 
 export const Register_label = styled.Text`
   font-family: "SegoeBold";
-  font-size: 38px;
+  font-size: 26px;
 `;
 
 export const BtnRegister = styled.TouchableOpacity`

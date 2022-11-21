@@ -55,4 +55,34 @@ export const ServiceArea = styled.View`
 
 export const Joker = styled.View`
   margin-bottom: 10%;
-`
+`;
+
+export const ModalContainer = styled.View`
+  justify-content: center;
+  aligin-items: center;
+  margin-top: 45%;
+`;
+
+export const ModalView = styled.View`
+  margin: 20px
+  ;
+  background-color: white;
+  border-radius: 20px;
+  padding: 15px;
+  align-items: center;
+`;
+
+export const LabelTitle = styled.Text`
+  font-size: 22px;
+  color: ${Colors.SuperDark};
+  align-self: center;
+  margin: 1%;
+  text-align: center;
+`;
+
+export const ButtonArea = styled.View`
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;

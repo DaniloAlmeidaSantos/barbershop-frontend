@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import {
   Login_Container,
   Header_Text,
@@ -8,6 +8,9 @@ import {
 } from './styles';
 import BtnConfirm from '../../components/btnConfirm/BtnConfirmComponent';
 import InputLogin from '../../components/inputLogin/InputComponent';
+import BarberImage from '../../assets/Images/Logo_Rosa_Babershop.png';
+
+
 
 async function authenticateUser(email, password, navigation) {
   if (email && password) {
@@ -28,7 +31,10 @@ async function authenticateUser(email, password, navigation) {
     );
 
     if (responseRequest.status == 200) {
-      await navigation.navigate('Home', { responseRequest });
+      responseRequest.json().then(response => {
+        console.log(response)
+        navigation.navigate('Home', { response });
+      })
     } else {
       alert('Login ou senha incorretos...');
     }
@@ -43,12 +49,13 @@ export default function AuthenticateScreen({ navigation }) {
 
   return (
     <Login_Container>
-      <View>
-        <Header_Text>Carlos Rosa Barbearia</Header_Text>
+      <View style={{alignContent: 'center', alignItems: 'center', marginTop: 50}}>
+        <Image style={{height: 250, width: 250}} source={BarberImage} />
       </View>
       <InputLogin
         icon="person"
         placeholder="E-mail"
+        style={{color: 'black'}}
         onChangeText={(text) => setEmail(text)}
         value={email}
       />
@@ -62,12 +69,12 @@ export default function AuthenticateScreen({ navigation }) {
       <Login_BtnText>Esqueceu a senha?</Login_BtnText>
       <ButtonArea style={{ flexDirection: 'row' }}>
         <BtnConfirm
-          style={{ flex: 1 }}
+          style={{ flex: 1, backgroundColor: 'black'  }}
           title="Entrar"
           onPress={() => authenticateUser(email, password, navigation)}
         />
         <BtnConfirm
-          style={{ flex: 2 }}
+          style={{ flex: 2, backgroundColor: 'black' }}
           title="Cadastrar"
           onPress={() => navigation.navigate('Register')}
         />

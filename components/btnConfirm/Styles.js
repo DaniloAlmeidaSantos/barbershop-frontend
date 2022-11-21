@@ -17,7 +17,7 @@ export const BtnConfirm = styled.TouchableOpacity`
     padding-top: 10px;
     padding-bottom: 10px;
     
-    background-color: ${Colors.Dark};
+    background-color: ${Colors.SuperDark};
 `;
 
 export const BtnText = styled.Text`

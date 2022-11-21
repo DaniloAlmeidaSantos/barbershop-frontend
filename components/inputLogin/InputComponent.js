@@ -19,12 +19,12 @@ export default ({
         <IconComunity
           name={icon}
           size={35}
-          style={{ color: Colors.Dark, marginRight: 12 }}
+          style={{ color: Colors.SuperDark, marginRight: 12 }}
         />:
         <IconMaterial
           name={icon}
           size={35}
-          style={{ color: Colors.Dark, marginRight: 12 }}
+          style={{ color: Colors.SuperDark, marginRight: 12 }}
         />
       }
       <InputText
