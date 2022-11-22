@@ -2,6 +2,8 @@ import React from 'react';
 import AuthenticateScreen from './screens/login/LoginScreen';
 import RegisterScreen from './screens/register/RegisterScreen';
 import HomeScreen from './screens/home/HomeScreen';
+import SchedulingScreen from './screens/schedulingScreen/SchedulingScreen';
+import ManagerScreen from './screens/managerBarbershop/ManagerScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
