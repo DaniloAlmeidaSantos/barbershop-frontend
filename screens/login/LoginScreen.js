@@ -79,19 +79,6 @@ export default function AuthenticateScreen({ navigation }) {
           onPress={() => navigation.navigate('Register')}
         />
       </ButtonArea>
-
-      <View
-        style={{
-          position: 'fixed',
-          bottom: -100,
-          flex: 1,
-          alignItems: 'center',
-          alignSelf: 'center',
-          justifyContent: 'center',
-          margin: 20,
-        }}>
-        <Text>© 2022-2022 Senacsp. All Rights Reserved.</Text>
-      </View>
     </Login_Container>
   );
 }
