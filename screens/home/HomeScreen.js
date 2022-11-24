@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { useRoute } from '@react-navigation/native';
 import { FlatList, RefreshControl } from 'react-native';
 
-import Header from '../../components/header/header.jsx';
-import GButtom from '../../components/btnGlobal/BtnGlobal.jsx';
-import EmptyList from '../../components/emptyList/EmptyList.jsx';
-import SchedulingItem from '../../components/schedulingItem/SchedulingItem.jsx';
+import Header from '../../components/header/header.js';
+import GButtom from '../../components/btnGlobal/BtnGlobal.js';
+import EmptyList from '../../components/emptyList/EmptyList.js';
+import SchedulingItem from '../../components/schedulingItem/SchedulingItem.js';
 
 import {
   Home_Container,

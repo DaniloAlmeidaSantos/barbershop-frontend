@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Button } from "react-native";
 import Colors from '../../constants/Theme';
-import Icon from 'react-native-vector-icons/AntDesign';
 import { Label, LabelContainer, BtnLabel, BtnText } from './Styles';
 
 export default function LabelDefaultComponent({text, isServiceScreen, onPress}) {

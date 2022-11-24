@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../../components/header/header.jsx';
+import Header from '../../components/header/header.js';
 import { TouchableOpacity, Modal, RefreshControl } from 'react-native';
 import Colors from '../../constants/Theme';
-import LabelDefaultComponent from '../../components/labelDefault/LabelDefaultComponent.jsx';
+import LabelDefaultComponent from '../../components/labelDefault/LabelDefaultComponent.js';
 import InputComponent from '../../components/inputLogin/InputComponent';
 import {
   ManagerContainer,
@@ -17,7 +17,7 @@ import {
   ButtonArea,
 } from './Styles';
 import BtnConfirm from '../../components/btnConfirm/BtnConfirmComponent';
-import CheckBox from '../../components/checkbox/CheckBoxComponent.jsx';
+import CheckBox from '../../components/checkbox/CheckBoxComponent.js';
 import IconAwesome from 'react-native-vector-icons/FontAwesome5';
 
 export default function ManagerScreen({ navigation }) {

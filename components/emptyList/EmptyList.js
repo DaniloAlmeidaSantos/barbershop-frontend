@@ -1,5 +1,5 @@
 import react from 'react';
-import GButtom from '../btnGlobal/BtnGlobal.jsx'
+import GButtom from '../btnGlobal/BtnGlobal.js'
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../../constants/Theme';

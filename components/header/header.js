@@ -1,7 +1,7 @@
 import react from 'react';
 import { TouchableOpacity } from 'react-native';
 
-import GButtom from '../../components/btnGlobal/BtnGlobal.jsx'
+import GButtom from '../../components/btnGlobal/BtnGlobal.js'
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import IconAwesome from 'react-native-vector-icons/FontAwesome5';
@@ -9,7 +9,7 @@ import IconMaterial from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 import Colors from '../../constants/Theme';
-import BarberImage from '../../assets/Images/Logo_Rosa_Babershop 1.png';
+import BarberImage from '../../assets/Images/Logo_Rosa_Babershop.png';
 
 import {
   Header_Container,

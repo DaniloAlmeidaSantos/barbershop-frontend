@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useRoute } from '@react-navigation/native';
-import Header from '../../components/header/header.jsx';
-import LabelDefaultComponent from '../../components/labelDefault/LabelDefaultComponent.jsx';
+import Header from '../../components/header/header.js';
+import LabelDefaultComponent from '../../components/labelDefault/LabelDefaultComponent.js';
 import InputComponent from '../../components/inputLogin/InputComponent'
-import CheckBoxComponent from '../../components/checkbox/CheckBoxComponent.jsx'
-import Loading from '../../components/loading/Loading.jsx';
+import CheckBoxComponent from '../../components/checkbox/CheckBoxComponent.js'
+import Loading from '../../components/loading/Loading.js';
 
 import {
   Scheduling_Container,
